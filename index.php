@@ -40,7 +40,7 @@
 
 <script type="text/javascript">
 
-var server = "http://localhost/mykotogadang/";
+var server = window.location.origin+"/mykotogadang/";
 var map;
 var markersDua = [];
 var koordinat = 'null'
@@ -4778,7 +4778,7 @@ function hideLegenda() {
   }
   .class1
   {
-    background-image: url("http://localhost/mykotogadang/assets/img/industries.png");
+    background-image: url(window.location.origin+"/mykotogadang/assets/img/industries.png");
     background-repeat: no-repeat;
     padding-left: 30px;
     background-size: 40%;
@@ -4786,7 +4786,7 @@ function hideLegenda() {
   }
   .class2
   {
-    background-image: url("http://localhost/mykotogadang/assets/img/restaurants.png");
+    background-image: url(window.location.origin+"/mykotogadang/assets/img/restaurants.png");
     background-repeat: no-repeat;
     padding-left: 30px;
     background-size: 40%;
@@ -4794,7 +4794,7 @@ function hideLegenda() {
   }
   .class3
   {
-    background-image: url("http://localhost/mykotogadang/assets/img/religious.png");
+    background-image: url(window.location.origin+"/mykotogadang/assets/img/religious.png");
     background-repeat: no-repeat;
     padding-left: 30px;
     background-size: 40%;
@@ -4802,7 +4802,7 @@ function hideLegenda() {
   }
   .class4
   {
-    background-image: url("http://localhost/mykotogadang/assets/img/museums.png");
+    background-image: url(window.location.origin+"/mykotogadang/assets/img/museums.png");
     background-repeat: no-repeat;
     padding-left: 30px;
     background-size: 40%;
@@ -4810,7 +4810,7 @@ function hideLegenda() {
   }
   .class5
   {
-    background-image: url("http://localhost/mykotogadang/assets/img/msj.png");
+    background-image: url(window.location.origin+"/mykotogadang/assets/img/msj.png");
     background-repeat: no-repeat;
     padding-left: 30px;
     background-size: 40%;
