@@ -1,0 +1,91 @@
+	Dim KEC1 ="KEC1" As String
+	Dim KECIK1 ="KECIK1" As String
+	Dim jenis_daftar As Map
+	Type jeniskec_lines (isi1 As String,isi2 As String,isi3 As String,isi4 As String)
+	Dim id_kecamatan As String
+	Dim nama_kecamatan As String
+	Dim id, idikec As String 
+	Dim nama_industri As String
+
+
+
+
+
+
+Panel1.Visible=False
+	daftarjenis
+	
+	ListView1.SingleLineLayout.Label.TextColor=Colors.RGB(105, 105, 105)
+	ListView1.SingleLineLayout.Label.TextSize=16
+	'Spinner1.TextColor=Colors.RGB(43, 154, 188)
+	Spinner1.DropdownBackgroundColor=Colors.RGB(95, 93, 90)
+	'ListView1.SingleLineLayout.Label.TextColor=Colors.RGB(43, 154, 188)
+	ListView1.SingleLineLayout.Label.Left=2%y
+
+
+
+
+
+Sub Activity_Pause (UserClosed As Boolean)
+Activity.Finish
+End Sub
+
+Sub ExecuteRemoteQuery(Query As String, JobName As String)
+	Dim Job As HttpJob
+	Job.Initialize(JobName, Me)
+	Job.PostString(""&Main.Server&"json.php", Query)
+End Sub
+
+Sub daftarjenis
+	Spinner1.Add("--Pilih Jenis--")
+	ProgressDialogShow("Loading ....")
+	ExecuteRemoteQuery("select * from kecamatan","KEC1") 'eksekusi query pencarian jenis ik
+End Sub
+
+Sub JobDone(Job As HttpJob)
+ProgressDialogHide
+	If Job.Success Then
+		Dim res As String
+		res = Job.GetString
+		Log("Response from server :"& res)
+		Dim parser As JSONParser
+		parser.Initialize(res)
+		Select Job.JobName
+			Case KECIK1
+			Dim kecik_array As List
+			kecik_array = parser.NextArray
+			If kecik_array.Size - 1 < 0 Then
+				Msgbox("Industri kecil tidak ditemukan", "Peringatan")
+			Else
+				For i=0 To kecik_array.Size -1
+					Dim a As Map
+					a = kecik_array.Get(i)
+					Dim b As jeniskec_lines
+					b.Initialize
+					b.isi1 = a.Get("id")
+					b.isi2 = a.Get("nama_industri")
+					b.isi3 = a.Get("alamat")
+					b.isi4 = a.Get("cp")
+					ListView1.AddSingleLine2(b.isi2,b) 'meletakkan nama industri kecil pada listview
+				Next
+			End If
+				
+			Case KEC1
+			Dim jenis_array As List
+			jenis_daftar.Initialize
+			jenis_array = parser.NextArray	
+			If(jenis_array.Size>0) Then
+				For i=0 To jenis_array.Size -1
+					Dim a As Map
+					a = jenis_array.Get(i)
+					id_kecamatan=a.Get("id_kecamatan")
+					nama_kecamatan=a.Get("nama_kecamatan")
+					Spinner1.Add(nama_kecamatan) 
+					jenis_daftar.Put(nama_kecamatan, id_kecamatan)
+				Next
+			End If
+			
+		End Select
+	End If	
+	Job.Release
+End Sub

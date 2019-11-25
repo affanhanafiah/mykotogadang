@@ -1,0 +1,205 @@
+﻿Version=5.02
+NumberOfModules=70
+Module1=dashboardd
+Module2=detail_umkm
+Module3=galeri
+Module4=radius
+Module5=ikposisi
+Module6=umkm_nama
+Module7=detail_rm
+Module8=neartok
+Module9=tokposisi
+Module10=wisposisi
+Module11=nearwis
+Module12=near
+Module13=nearculinary
+Module14=kulposisi
+Module15=nearmes
+Module16=mesposisi
+Module17=radius_mosque
+Module18=dashboard
+Module19=ik_posisi
+Module20=imageDownloader
+Module21=detail_mes
+Module22=galeri_rm
+Module23=galerirm
+Module24=rm_nama
+Module25=search_wis
+Module26=wis_fas
+Module27=search_umkm
+Module28=wis_nama
+Module29=detail_wis
+Module30=search_rm
+Module31=radius_rm
+Module32=search_mosque
+Module33=posisi
+Module34=umkm_posisi
+Module35=search_tok
+Module36=detail_tok
+Module37=radius_wis
+Module38=kul_nama
+Module39=rm_menu
+Module40=mes_nama
+Module41=tok_nama
+Module42=sou_jenis
+Module43=detailIK
+Module44=Starter
+Module45=detailKUL
+Module46=search_cul
+Module47=umkm_product
+Module48=sou_nama
+Module49=search_ik
+Module50=search_sou
+Module51=ik_kec
+Module52=ik_nama
+Module53=kul_kec
+Module54=kul_fasilitas
+Module55=kul_tem
+Module56=posisiIK
+Module57=ik_jeniss
+Module58=detailSOUV
+Module59=ik_jenis
+Module60=sou_kec
+Module61=ik_gallery
+Module62=detailSOU
+Module63=umkm_tipe
+Module64=galero
+Module65=radius_tok
+Module66=galerimes
+Module67=galeritok
+Module68=galeriwis
+Module69=imageDownloader1
+Module70=galeri_rm2
+Build1=Default,b4a.example
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="14"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~SetApplicationAttribute(android:theme, "@android:style/Theme.Holo")~\n~'End of default text.~\n~
+IconFile=
+NumberOfFiles=64
+File1=bkt.png
+File2=cul.png
+File3=dashboard.bal
+File4=detailinfoik.bal
+File5=detailinfokul.bal
+File6=detailinfomes.bal
+File7=detailinform.bal
+File8=detailinfosou.bal
+File9=detailinfotok.bal
+File10=detailinfoumkm.bal
+File11=detailinfowis.bal
+File12=galeri.bal
+File13=galeriik.bal
+File14=galerimes.bal
+File15=gift.png
+File16=home.png
+File17=ik_jenis.bal
+File18=ik_kec.bal
+File19=ik_nama.bal
+File20=ikk.png
+File21=ind.png
+File22=info.png
+File23=kul_fasilitas.bal
+File24=kul_kec.bal
+File25=kul_nama.bal
+File26=kul_tem.bal
+File27=main.bal
+File28=man.png
+File29=mar.png
+File30=marrr.png
+File31=mes_nama.bal
+File32=mosque11.png
+File33=near.bal
+File34=people.jpg
+File35=posisi.bal
+File36=posisiIK.bal
+File37=pri.png
+File38=radius.bal
+File39=radius_tok.bal
+File40=radius_wis.bal
+File41=reff.png
+File42=rm_menu.bal
+File43=rm_nama.bal
+File44=search_cul.bal
+File45=search_ik.bal
+File46=search_mosque.bal
+File47=search_rm.bal
+File48=search_sou.bal
+File49=search_tok.bal
+File50=search_umkm.bal
+File51=search_wis.bal
+File52=sou_jenis.bal
+File53=sou_kec.bal
+File54=sou_nama.bal
+File55=Starter.bas
+File56=time.png
+File57=tok_nama.bal
+File58=troll.png
+File59=umkm.png
+File60=umkm_nama.bal
+File61=umkm_product.bal
+File62=umkm_tipe.bal
+File63=wis_fas.bal
+File64=wis_nama.bal
+NumberOfLibraries=6
+Library1=core
+Library2=gps
+Library3=http
+Library4=httputils2
+Library5=json
+Library6=network
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: Koto Gadang GIS
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: False
+#End Region 
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+	
+	Dim Server="http://192.168.1.2/kotogadang/andro/" As String 'variable untuk koneksi ke database
+
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+
+	Private Button1 As Button
+	Private Button4 As Button
+	Private Button2 As Button
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("main")
+
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+Sub Button1_Click
+	StartActivity("dashboardd")
+End Sub
+
+
+
+Sub Button4_Click
+	
+End Sub
+Sub Button2_Click
+	
+End Sub

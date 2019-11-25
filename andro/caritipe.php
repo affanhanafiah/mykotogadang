@@ -1,0 +1,22 @@
+
+<?php
+require 'connect.php';
+
+$cari_nama = $_GET["cari_nama"];
+ 
+
+$querysearch="SELECT distinct a.id,a.name,ST_X(ST_Centroid(a.geom)) AS longitude, ST_Y(ST_CENTROID(a.geom)) As latitude
+          FROM umkm as a,umkm_type where umkm_type.id_type='$cari_nama' and umkm_type.id_type=a.id_type
+				";
+			   
+$hasil=pg_query($querysearch);
+while($row = pg_fetch_array($hasil))
+    {
+          $id=$row['id'];
+          $name=$row['name'];
+          $longitude=$row['longitude'];
+          $latitude=$row['latitude'];
+          $dataarray[]=array('id'=>$id,'name'=>$name,'longitude'=>$longitude,'latitude'=>$latitude);
+    }
+echo json_encode ($dataarray);
+?>
